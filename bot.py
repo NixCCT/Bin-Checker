@@ -31,20 +31,20 @@ async def start(event):
     if event.is_group:
         await event.reply("**Bin-Checker is Alive**")
         return
-    await event.reply(f"**Heya {event.sender.first_name}**\nIts a Bin-Checker Bot To Check Your Bins Are Valid Or Not.", buttons=[
-    [Button.url("Mʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", "https://github.com/TgxBotz/Bin-Checker")]
+    await event.reply(f"**Heya {event.sender.first_name}**\n𝚅𝚊𝚕𝚒𝚍𝚊𝚍𝚘𝚛 𝙳𝚎 𝙱𝚒𝚗", buttons=[
+    [Button.url("𝙼𝚒 𝙲𝚛𝚎𝚊𝚍𝚘𝚛🌴", "@righ_nix")]
     ])
 
-@bin.on(events.NewMessage(pattern="^[!?/]help$"))
+@bin.on(events.NewMessage(pattern="^[!?/]cmds$"))
 async def help(event):
     text = """
-**Welcome to HelpMenu:**
+**ᏀͲᏢ ᏀϴᏞᎠ ᏟᎻᏦ ␀:**
 
-- /start - To Start Me :)
-- /help - To Get Help Menu
-- /bin - To check is your bin valid or not
+ ⚜️ - /start - **Inicio**
+ ⚜️ - /help - **Ver Menu**
+ ⚜️ - /bin - **Checar Bin**
 """
-    await event.reply(text, buttons=[[Button.url("Mʏ Sᴏᴜʀᴄᴇ Cᴏᴅᴇ", "https://github.com/TgxBotz/Bin-Checker")]])
+    await event.reply(text, buttons=[[Button.url("ᏀͲᏢ ᏀϴᏞᎠ ᏟᎻᏦ ␀", "@righ_nix")]])
 
 @bin.on(events.NewMessage(pattern="^[!?/]bin"))
 async def binc(event):
@@ -52,7 +52,7 @@ async def binc(event):
     try:
         input = event.text.split(" ", maxsplit=1)[1]
 
-        url = requests.get(f"https://bins-su-api.now.sh/api/{input}")
+        url = requests.get(f"https://api.freebinchecker.com/bin//api/{input}")
         res = url.json()
         vendor = res['data']['vendor']
         type = res['data']['type']
@@ -62,7 +62,7 @@ async def binc(event):
         me = (await event.client.get_me()).username
 
         valid = f"""
-<b>➤ Valid Bin:</b>
+<b>➤ Valid Bin ✅:</b>
 
 <b>Bin -</b> <code>{input}</code>
 <b>Status -</b> <code>Valid Bin</code>
